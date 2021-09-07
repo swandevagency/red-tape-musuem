@@ -1,0 +1,19 @@
+{
+  "name": "red-tape-museum",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "core-js": "^3.15.1",
+    "gsap": "^3.7.1",
+    "node": "^16.6.1",
+    "nuxt": "^2.15.7",
+    "three": "^0.132.2"
+  }
+}
