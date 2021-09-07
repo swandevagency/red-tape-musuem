@@ -2,11 +2,12 @@
   <div class="navigation-bar-wrapper" ref="navigationBarWrapper">
     <h2 ref="websiteName">Red Tape</h2>
     <ul class="navigation-links-list" ref="navigationLinksList">
-      <li><nuxt-link class="selected" to="Index">Home</nuxt-link></li>
-      <li><nuxt-link to="Models">Models</nuxt-link></li>
-      <li><nuxt-link to="Paintings">Paintings</nuxt-link></li>
-      <li><nuxt-link to="#">GitHub</nuxt-link></li>
-      <li><nuxt-link to="#">About</nuxt-link></li>
+      <li v-for="(link, index) in links" :key="index">
+        <nuxt-link :to="link.url" :class="{active: isActive(link.url)}">{{link.name}}</nuxt-link>
+      </li>
+      <li>
+        <a href="https://github.com/swandevagency" target="_blank">GitHub</a>
+      </li>
     </ul>
   </div>
 </template>
@@ -18,6 +19,28 @@ export default {
     isLockNavigation() {
       return this.$store.state.index.lockNavigation;
     },
+  },
+  data(){
+    return{
+      links: [
+        {
+          name: "Home",
+          url: "/"
+        },
+        {
+          name: "Models",
+          url: "/models"
+        },
+        {
+          name: "Paintings",
+          url: "/paintings"
+        },
+        {
+          name: "About",
+          url: "/about"
+        }
+      ]
+    }
   },
   methods: {
     lockNavigation(event) {
@@ -74,6 +97,12 @@ export default {
         });
       }
     },
+    isActive(url){
+      const pageURL = this.$route.name.split('-')[0];
+      console.log(url.split('/')[1], pageURL);
+      if (url.split('/')[1] === pageURL) return true;
+      return false;
+    }
   },
 };
 </script>
@@ -121,7 +150,7 @@ body {
   display: inline-block;
   padding: 0.5em 0;
 }
-.navigation-bar-wrapper li a.selected {
+.navigation-bar-wrapper li a.active {
   font-weight: 500;
   border-bottom: 2px solid var(--primary-theme-color);
 }

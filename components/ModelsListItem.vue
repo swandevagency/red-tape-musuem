@@ -1,6 +1,6 @@
 <template>
   <div class="models-list-item-wrapper">
-    <nuxt-link class="models-list-item-link" :to="'models/' + modelItem.Id">
+    <nuxt-link class="models-list-item-link" :to="'/models/' + modelItem.Id">
       <h3>{{ modelItem.modelName }}</h3>
       <h4>{{ modelItem.modelType }}</h4>
       <img :src="modelItem.modelPicture" alt="" />

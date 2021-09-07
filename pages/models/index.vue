@@ -1,13 +1,13 @@
 <template>
-  <div class="paintings-page-wrapper">
-    <div class="paintings-landing-wrapper">
-      <div class="paintings-content-wrapper">
-        <h2>Paintings</h2>
-        <div class="paintings-list-wrapper">
-          <PaintingsListItem
-            v-for="painting in paintingsList"
-            :key="painting.Id"
-            :painting="painting"
+  <div class="models-page-wrapper">
+    <div class="landing-wrapper">
+      <div class="models-content-wrapper">
+        <h2>Models</h2>
+        <div class="models-list-wrapper">
+          <ModelsListItem
+            v-for="modelItem in modelsList"
+            :key="modelItem.Id"
+            :modelItem="modelItem"
           />
         </div>
       </div>
@@ -16,16 +16,16 @@
 </template>
 
 <script>
-import PaintingsListItem from "../../components/PaintingsListItem.vue";
+import ModelsListItem from "../../components/ModelsListItem.vue";
 export default {
   transition: "models",
   computed: {
-    paintingsList() {
-      return this.$store.state.paintings.paintingItemsList;
+    modelsList() {
+      return this.$store.state.models.modelsList;
     },
   },
   components: {
-    PaintingsListItem,
+    ModelsListItem,
   },
 };
 </script>
@@ -63,18 +63,17 @@ body {
   padding: 0;
   margin: 0;
 }
-/* #region Landing section */
-.paintings-landing-wrapper {
+.landing-wrapper {
   padding: 10em 80px 0;
   box-sizing: border-box;
   isolation: isolate;
-  background: url("/Paintings landing image.jpg");
+  background: url("/Models landing image.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
   overflow: hidden;
 }
-.paintings-landing-wrapper::before {
+.landing-wrapper::before {
   content: "";
   background: linear-gradient(
     rgba(0, 0, 0, 0.6) 0%,
@@ -86,18 +85,18 @@ body {
   position: absolute;
   z-index: -1;
 }
-.paintings-content-wrapper {
+.models-content-wrapper {
   width: 100%;
   margin: 2rem 0 0;
   display: flex;
   flex-direction: column;
 }
-.paintings-content-wrapper > h2 {
+.models-content-wrapper > h2 {
   font-family: montserrat;
   color: var(--light-text-color);
   font-weight: 300;
 }
-.paintings-list-wrapper {
+.models-list-wrapper {
   display: flex;
 }
 /* #endregion */

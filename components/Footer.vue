@@ -8,13 +8,15 @@
       <div class="footer-navigation-links-wrapper">
         <h2>Navigate</h2>
         <ul class="footer-navigation-links-list">
+          <li><nuxt-link to="/">Home</nuxt-link></li>
+          <li><nuxt-link to="/models">Models</nuxt-link></li>
+          <li><nuxt-link to="/paintings">Paintings</nuxt-link></li>
           <li>
-            <nuxt-link class="selected-navigation-link" to="#">Home</nuxt-link>
+            <a href="https://github.com/swandevagency" target="_blank"
+              >GitHub</a
+            >
           </li>
-          <li><nuxt-link to="#">Models</nuxt-link></li>
-          <li><nuxt-link to="#">Paintings</nuxt-link></li>
-          <li><nuxt-link to="#">GitHub</nuxt-link></li>
-          <li><nuxt-link to="#">About</nuxt-link></li>
+          <li><nuxt-link to="/about">About</nuxt-link></li>
         </ul>
       </div>
       <div class="footer-descriptions-wrapper">
@@ -65,7 +67,7 @@
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="https://github.com/swandevagency" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24.376"
@@ -150,7 +152,7 @@ export default {};
 .footer-social-media-links-wrapper {
   margin-top: 40px;
 }
-.footer-navigation-links-list > li > a.selected-navigation-link {
+.footer-navigation-links-list > li > a.nuxt-link-exact-active {
   border-left: 2px solid var(--primary-theme-color);
   padding-left: 8px;
   margin-left: -8px;

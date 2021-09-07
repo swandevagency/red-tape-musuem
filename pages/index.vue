@@ -34,7 +34,7 @@
             tristique senectus. Eget nunc lobortis mattis aliquam faucibus purus
             in massa.
           </p>
-          <nuxt-link class="section-link-button" to="None">READ MORE</nuxt-link>
+          <nuxt-link class="section-link-button" to="/about">READ MORE</nuxt-link>
         </div>
       </div>
     </section>
@@ -52,15 +52,15 @@
 </template>
 
 <script>
-import NavigationBar from "../components/NavigationBar.vue";
 import * as THREE from "three";
-import PaintingsListItem from "../components/PaintingsListItem.vue";
 import { gsap } from "gsap";
-import ModelsListItem from "../components/ModelsListItem.vue";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-// import { mapMutations } from "vuex";
+import NavigationBar from "../components/NavigationBar.vue";
+import PaintingsListItem from "../components/PaintingsListItem.vue";
+import ModelsListItem from "../components/ModelsListItem.vue";
 export default {
+  transition: "home",
   computed: {
     paintingsList() {
       return this.$store.state.paintings.paintingItemsList;
@@ -89,6 +89,7 @@ export default {
       this.renderer.render(this.scene, this.camera);
       window.requestAnimationFrame(this.tick);
     },
+    // Change statue rotation with mouse cursor
     interactWithStatue(event) {
       const cursor = {
         positionX:
@@ -208,6 +209,7 @@ body {
   padding: 0;
   margin: 0;
 }
+/* #region Landing section */
 .landing-page-wrapper {
   padding: 10em 80px 0;
   box-sizing: border-box;
@@ -244,6 +246,7 @@ body {
 .paintings-list-wrapper {
   display: flex;
 }
+/* #endregion */
 /* #region About section */
 .about-section {
   padding: 13em 0 6em;
@@ -332,6 +335,17 @@ body {
 .models-list-wrapper {
   display: flex;
   justify-content: space-between;
+}
+/* #endregion */
+/* #region Transitions */
+.home-enter-active,
+.home-leave-active {
+  transition: opacity 0.2s, transform 0.2s;
+}
+.home-enter,
+.home-leave-active {
+  opacity: 0;
+  transform: scale(1.05);
 }
 /* #endregion */
 </style>

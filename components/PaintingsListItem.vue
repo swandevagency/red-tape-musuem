@@ -1,9 +1,12 @@
 <template>
-  <div class="paintings-list-item-wrapper">
+  <nuxt-link
+    :to="'/paintings/' + painting.Id"
+    class="paintings-list-item-wrapper"
+  >
     <img :src="painting.paintingImageSource" alt="" />
     <h3>{{ painting.paintingName }}</h3>
     <h4>{{ painting.paintingArtist }}</h4>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -16,6 +19,7 @@ export default {
 
 <style>
 .paintings-list-item-wrapper {
+  text-decoration: none;
   font-family: "Adobe Jenson Pro";
   color: var(--light-text-color);
   transition: transform 0.3s;
